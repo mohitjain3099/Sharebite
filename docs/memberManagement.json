@@ -1,0 +1,209 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Member Management API",
+        "description": "The REST service for creating user maintaining user roles and permissions",
+        "version": "v1.0"
+    },
+    "servers": [{
+        "url": "http://localhost:3001",
+        "description": "Local server"
+    }],
+    "paths": {
+        "/createUsers": {
+            "post": {
+                "operationId": "createNewUser",
+                "description": "Create a new user",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/getUsers/{userName}": {
+            "get": {
+                "operationId": "getUser",
+                "description": "Get user by username",
+                "parameters": [{
+                    "name": "userName",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "User found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "updateUser",
+                "description": "Update user by username",
+                "parameters": [{
+                    "name": "userName",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "deleteUser",
+                "description": "Delete user by username",
+                "parameters": [{
+                    "name": "userName",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    },
+                    "400": {
+                        "description": "Invalid username"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "examples": [
+                            1111
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "examples": [
+                            "John Doe"
+                        ]
+                    },
+                    "email": {
+                        "type": "string",
+                        "examples": [
+                            "sharebite11234@gmail.com"
+                        ]
+                    },
+                    "role": {
+                        "type": "string",
+                        "examples": [
+                            "admin"
+                        ]
+                    },
+                    "gender": {
+                        "type": "string",
+                        "examples": [
+                            "Male"
+                        ]
+                    },
+                    "dob": {
+                        "type": "string",
+                        "examples": [
+                            "1990-01-01"
+                        ]
+                    },
+                    "username": {
+                        "type": "string",
+                        "examples": [
+                            "john_doe"
+                        ]
+                    },
+                    "password": {
+                        "type": "string",
+                        "examples": [
+                            "password"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

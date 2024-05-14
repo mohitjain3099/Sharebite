@@ -1,0 +1,269 @@
+---
+openapi: 3.1.0
+info:
+  title: Media Management
+  description: Media Management API
+  version: v1.0
+servers:
+- url: http://localhost:3001
+  description: Local server
+paths:
+  "/medias/foodAvailibilityPost":
+    post:
+      summary: Create media
+      description: Create a new media
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/medias"
+      responses:
+        '201':
+          description: Media created
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthenticated
+  "/medias/rawMaterialPost":
+    post:
+      summary: Create media
+      description: Create a new media
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/medias"
+      responses:
+        '201':
+          description: Media created
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthenticated
+  "/medias/ngoPromotionalPost":
+    post:
+      summary: Create media
+      description: Create a new media
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/medias"
+      responses:
+        '201':
+          description: Media created
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthenticated
+  "/media":
+    get:
+      summary: Get all media
+      description: Get all media
+      responses:
+        '200':
+          description: Media found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/medias"
+        '404':
+          description: Media not found
+  "/media/{id}":
+    get:
+      summary: Get media by id
+      description: Get media by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Media found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/medias"
+        '404':
+          description: Media not found
+    put:
+      summary: Update media
+      description: Add or update media
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/medias"
+      responses:
+        '200':
+          description: Media updated
+        '400':
+          description: Invalid input
+        '404':
+          description: Media not found
+    delete:
+      summary: Delete media
+      description: Delete media by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Media deleted
+        '404':
+          description: Media not found
+components:
+  schemas:
+    medias:
+      type: object
+      properties:
+        id:
+          type: integer
+          examples:
+          - 1
+        type:
+          type: string
+          enum:
+          - image
+          examples:
+          - image
+        url:
+          type: string
+          examples:
+          - http://localhost:3001/images/1.jpg
+        createdAt:
+          type: string
+          format: date-time
+          examples:
+          - '2021-10-10T10:10:10Z'
+        updatedAt:
+          type: string
+          format: date-time
+          examples:
+          - '2021-10-10T10:10:10Z'
+        author:
+          type: string
+          examples:
+          - John Doe
+        location:
+          type: object
+          properties:
+            id:
+              type: integer
+              examples:
+              - 1
+            streetName:
+              type: string
+              examples:
+              - heath street
+            area:
+              type: string
+              examples:
+              - Mission Hill
+            city:
+              type: string
+              examples:
+              - Boston
+            pinCode:
+              type: string
+              examples:
+              - 1112
+            state:
+              type: string
+              examples:
+              - MA
+            coordinates:
+              type: string
+              examples:
+              - 1.0.0.0.334
+        caption:
+          type: string
+          examples:
+          - This is a caption
+        title:
+          type: string
+          examples:
+          - This is a title
+        postType:
+          type: string
+          enum:
+          - foodAvailibilityPost
+          - rawMaterialPost
+          - ngoPromotionalPost
+          examples:
+          - foodAvailibilityPost
+        mediaDetails:
+          oneOf:
+          - if:
+              properties:
+                postType:
+                  const: foodAvailibilityPost
+            then:
+              properties:
+                shelfLife:
+                  type: string
+                  format: date
+                  examples:
+                  - '2021-10-10'
+                isVeg:
+                  type: boolean
+                  examples:
+                  - true
+                allergens:
+                  type: array
+                  items:
+                    type: string
+                    examples:
+                    - peanuts
+                    - soy
+          - if:
+              properties:
+                postType:
+                  const: rawMaterialPost
+            then:
+              properties:
+                quantity:
+                  type: integer
+                  examples:
+                  - 100
+                unit:
+                  type: string
+                  enum:
+                  - kg
+                  - g
+                  - l
+                  - ml
+                  examples:
+                  - kg
+                shelfLife:
+                  type: string
+                  format: date
+                  examples:
+                  - '2021-10-10'
+          - if:
+              properties:
+                postType:
+                  const: ngoPromotionalPost
+            then:
+              properties:
+                mealsDelivered:
+                  type: integer
+                  examples:
+                  - 100

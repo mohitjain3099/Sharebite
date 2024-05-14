@@ -1,0 +1,230 @@
+openapi: 3.1.0
+info:
+  title: User Authentication API
+  description: The REST service for User Signup and Login
+  version: v1.0
+servers:
+- url: http://localhost:3001
+  description: Local server
+paths:
+  "/users":
+    post:
+      operationId: createUser
+      description: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Users"
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CreateUser"
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+    put:
+      operationId: updateUser
+      description: Update a User by username
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Users"
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UpdateUser"
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  "/users?username=value&password=value":
+    get:
+      operationId: getUser
+      description: Get a user by id
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GetUser"
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+    delete:
+      operationId: deleteUser
+      description: Delete a user by id
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User deleted successfully
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DeleteUser"
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        username:
+          type: string
+          examples:
+          - navale.an
+        password:
+          type: string
+          examples:
+          - abcxyz@123
+        name:
+          type: string
+          examples:
+          - User 1
+        email:
+          type: string
+          examples:
+          - sharebite11234@gmail.com
+        contact:
+          type: string
+          examples:
+          - +18575065116
+        type:
+          type: string
+          examples:
+          - Contributor/ Partner
+        dob:
+          type: string
+          examples:
+          - 05/25/1999
+        gender:
+          type: string
+          examples:
+          - Male/ Female
+        role:
+          type: string
+          examples:
+          - Delivery/ Regular/ Helper/ Supplier 
+    GetUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          examples:
+          - 1111
+        name:
+          type: string
+          examples:
+          - John Smith
+        email:
+          type: string
+          examples:
+          - sharebite11234@gmail.com
+        contact:
+          type: string
+          examples:
+          - +18575065116
+        type:
+          type: string
+          examples:
+          - Contributor/ Partner
+        dob:
+          type: string
+          examples:
+          - 05/25/1999
+        gender:
+          type: string
+          examples:
+          - Male/ Female
+        role:
+          type: string
+          examples:
+          - Delivery/ Regular/ Helper/ Supplier 
+    DeleteUser:
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - user deleted
+    UpdateUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          examples:
+          - 1111
+        message:
+          type: string
+          examples:
+          - user updated
+    CreateUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          examples:
+          - 1111
+        message:
+          type: string
+          examples:
+          - user created

@@ -1,0 +1,161 @@
+openapi: "3.1.0"
+info:
+  title: "NGO data management"
+  summary: "The REST service for NGO along with it's details"
+  version: "v1.0"
+servers:
+  - url: "http://localhost:3001"
+    description: "Local server"
+paths:
+  /NGOs:
+    post:
+      operationId: "register-ngo"
+      description: "Register the new NGO"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NGORegistrations"
+      responses:
+        "200":
+          description: "Successfully created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NGORegistrations"
+        "401":
+          description: "Unauthenticated"
+        "403":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+  /NGOs/{id}:
+    get:
+      operationId: "get-ngo"
+      description: "Get the NGO details"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully fetched"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NGORegistrations"
+        "401":
+          description: "Unauthenticated"
+        "403":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+    put:
+      operationId: "update-ngo"
+      description: "Update the NGO details"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NGORegistrations"
+      responses:
+        "200":
+          description: "Successfully updated"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NGORegistrations"
+        "401":
+          description: "Unauthenticated"
+        "403":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+    delete:
+      operationId: "delete-ngo"
+      description: "Delete the NGO"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully deleted"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NGORegistrations"
+        "401":
+          description: "Unauthenticated"
+        "403":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+components:
+  schemas:
+    NGORegistrations:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          examples:
+            - 1111
+        name:
+          type: "string"
+          examples:
+            - "shareBiteNGO"
+        emailId:
+          type: "string"
+          examples:
+            - "sharebite11234@gmail.com"
+        location:
+          type: "object"
+          properties:
+            id:
+              type: "integer"
+              examples:
+                - 1
+            streetName:
+              type: "string"
+              examples:
+                - "heath street"
+            area:
+              type: "string"
+              examples:
+                - "Mission Hill"
+            city:
+              type: "string"
+              examples:
+                - "Boston"
+            pinCode:
+              type: "string"
+              examples:
+                - 1112
+            state:
+              type: "string"
+              examples:
+                - "MA"
+            coordinates:
+              type: "string"
+              examples:
+                - "1.0.0.0.334"

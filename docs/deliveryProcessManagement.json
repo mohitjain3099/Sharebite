@@ -1,0 +1,246 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "Delivery Process Management API",
+      "description": "The REST service for managing delivery status and process",
+      "version": "v1.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3001",
+        "description": "Local server"
+      }
+    ],
+    "paths": {
+      "/deliveries": {
+        "get": {
+            "operationId": "getPickUpData",
+            "summary": "Get pickup data",
+            "responses": {
+              "200": {
+                "description": "Successfully retrieved pickup data",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Delivery"
+                      }
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Server error"
+              }
+            }
+        },
+        "post": {
+          "operationId": "creatingPickUp",
+          "description": "Create a new pick up",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delivery"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Pick up created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "examples": [1111]
+                      },
+                      "message": {
+                        "type": "string",
+                        "examples": ["Pick up created successfully"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      "/deliveries/{id}": {
+        "patch": {
+          "operationId": "updateDeliveryStatus",
+          "summary": "Updates the status of a specific delivery",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "The unique identifier of the delivery item",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["PENDING", "IN_TRANSIT", "DELIVERED"]
+                    }
+                  },
+                  "required": ["status"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Delivery status updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "examples": [1111]
+                      },
+                      "status":{
+                        "type": "string",
+                        "enum": ["PENDING", "IN_TRANSIT", "DELIVERED"]
+                      },
+                      "message": {
+                        "type": "string",
+                        "examples": ["Pickup Updated successfully"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request"
+            },
+            "404": {
+              "description": "Delivery not found"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Delivery": {
+          "type": "object",
+          "properties": {
+            "postPickUp": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "examples": [1111]
+                },
+                "author": {
+                  "type": "string",
+                  "examples": ["Author 1"]
+                },
+                "timeStamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": ["2021-10-10T10:10:10Z"]
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "examples": [1]
+                    },
+                    "streetName": {
+                      "type": "string",
+                      "examples": ["heath street"]
+                    },
+                    "area": {
+                      "type": "string",
+                      "examples": ["Mission Hill"]
+                    },
+                    "city": {
+                      "type": "string",
+                      "examples": ["Boston"]
+                    },
+                    "pinCode": {
+                      "type": "string",
+                      "examples": ["1112"]
+                    },
+                    "state": {
+                      "type": "string",
+                      "examples": ["MA"]
+                    },
+                    "coordinates": {
+                      "type": "string",
+                      "examples": ["1.0.0.0.334"]
+                    }
+                  }
+                }
+              }
+            },
+            "partner": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "examples": [1111]
+                },
+                "name": {
+                  "type": "string",
+                  "examples": ["Vendor 1"]
+                },
+                "email": {
+                  "type": "string",
+                  "examples": ["sharebite11234@gmail.com"]
+                }
+              }
+            },
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "IN_TRANSIT", "DELIVERED"]
+            },
+            "contributorDriver": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "examples": [1111]
+                },
+                "name": {
+                  "type": "string",
+                  "examples": ["Driver 1"]
+                },
+                "email": {
+                  "type": "string",
+                  "examples": ["sharebite11234@gmail.com"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
