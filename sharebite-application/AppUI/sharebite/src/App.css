@@ -1,0 +1,103 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto as the primary font */
+}
+
+body, html {
+  margin: 0%; /* Prevents horizontal scrolling */
+    font-family: "Sedan", serif;
+  font-style: normal;
+}
+
+.App {
+  animation: fadeIn 1s cubic-bezier(0.2, 0.4, 0.6, 1);
+  text-align: center;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.App-header {
+  background-color: #fff;
+  padding: 20px 0;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+
+
+
+.App-footer {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  color: #333;
+  bottom: 0;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.headline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 4em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 60px;
+  padding-left: 20px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #f8f9fa);
+}
