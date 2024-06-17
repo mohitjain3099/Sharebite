@@ -1,0 +1,18 @@
+meta {
+  name: Login
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3008/users/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "del@gmail.com",
+    "password": "Delry@123"
+  }
+}
