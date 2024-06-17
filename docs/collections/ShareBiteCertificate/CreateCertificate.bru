@@ -1,0 +1,19 @@
+meta {
+  name: CreateCertificate
+  type: http
+  seq: 1
+}
+
+get {
+  url: localhost:3000/certificates
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name":"Mohit Jain",
+    "amount":100,
+    "date": "2024-03-10T00:00:00Z"
+  }
+}
