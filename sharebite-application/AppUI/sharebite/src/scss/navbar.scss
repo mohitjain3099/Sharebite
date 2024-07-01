@@ -1,0 +1,69 @@
+@import 'common';
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Flow+Circular&family=Rubik:ital,wght@0,300..900;1,300..900&family=Whisper&family=Work+Sans:ital,wght@1,100&display=swap');
+
+.tagline{
+    font-family: "Dancing Script" !important;
+    font-optical-sizing: auto !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+  }
+
+.appbar-btn{
+    font-family: "Rubik" !important;
+    font-optical-sizing: auto !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    color: white !important;
+}
+.appbar-btn:hover{
+    
+    background-color: white !important;
+    color: black !important;
+    
+}
+
+.bg-content{
+    font-family: "Rubik" !important;
+    font-optical-sizing: auto !important;
+    font-weight: 200 !important;
+    font-style: normal !important;
+}
+
+.bg-button{
+    font-family: "Rubik" !important;
+    font-optical-sizing: auto !important;
+    font-weight: 200 !important;
+    font-style: normal !important;
+    border-radius: 10px !important;
+}
+.bg-button:hover{
+    background-color: rgba(255, 255, 255, 0.2)!important;
+    
+}
+
+.btn-contribute{
+    background-color: black !important;
+    color: white !important;
+    font-family: "Rubik" !important;
+    font-optical-sizing: auto !important;
+    font-weight: 200 !important;
+    font-style: normal !important;
+    border-radius: 10px !important;
+
+}
+.btn-contribute:hover{
+    background-color: #FD514E !important;
+    color: white !important;
+}
+
+.donate-img{
+    position: sticky;
+    width: 100%;
+    height: 810px;
+    object-fit: cover;
+    margin : 0 auto;
+    padding-top: 15px;
+    padding-right: 15px;
+    
+}

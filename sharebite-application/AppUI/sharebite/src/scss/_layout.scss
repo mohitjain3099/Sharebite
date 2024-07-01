@@ -1,0 +1,28 @@
+@each $size in $spacing-sizes {
+    .mg-#{$size} {
+        // Interpolation
+        margin: #{$size}px;
+    }
+
+    .pd-#{$size} {
+        padding: #{$size}px;
+    }
+
+    .mg-tb-#{$size} {
+        // Interpolation
+        margin: #{$size}px 0px;
+    }
+
+    .pd-tb-#{$size} {
+        padding: #{$size}px 0px;
+    }
+
+    .mg-lr-#{$size} {
+        // Interpolation
+        margin: 0px #{$size}px;
+    }
+
+    .pd-lr-#{$size} {
+        padding: 0px #{$size}px;
+    }
+}
