@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'layout';
+@import 'mixins';
+
+.white-text {
+    color: white;
+}
+
+select{
+    cursor: pointer;
+}
+
+option {
+    cursor: pointer;
+}
+
+.center-text {
+    text-align: center;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

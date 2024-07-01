@@ -1,0 +1,24 @@
+@mixin bold-font($font-size:35px) {
+    font-size: $font-size;
+    font-weight: bolder;
+}
+
+@mixin flex($direction:row, $justify-content:center, $align-items:center, $gap:0px 0px) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    gap: $gap;
+}
+
+@mixin grid($columns:1, $rows:1, $gap:0px 0px) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: repeat($rows, 1fr);
+    gap: $gap;
+}
+
+@mixin border($size:1px, $style:solid, $color:black, $radius:0px) {
+    border: $size $style $color;
+    border-radius: $radius;
+}
