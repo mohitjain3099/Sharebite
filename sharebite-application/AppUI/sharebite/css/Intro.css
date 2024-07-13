@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  background-image: url('./background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* Set a higher z-index value */
+  position: relative; /* Add this to make z-index work */
+}
+
+
+@keyframes headline {
+  0% { 
+    opacity: 0; 
+  }
+  100% { 
+    opacity: 1; 
+  }
+}
+
+.headline {
+  animation: headline 2s;
+}

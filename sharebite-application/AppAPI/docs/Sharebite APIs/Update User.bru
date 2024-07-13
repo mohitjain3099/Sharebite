@@ -1,0 +1,26 @@
+meta {
+  name: Update User
+  type: http
+  seq: 8
+}
+
+patch {
+  url: http://localhost:3008/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "delivery@gmail.com",
+    "password": "Delivery@123",
+    "type": "individual",
+    "firstName": "Delivery",
+    "lastName": "Man",
+    "dob": "1994-01-14",
+    "gender": "Female",
+    "contact": "2343567688",
+    "role": "delivery",
+    "id": "662071766c25f3392c43070c"
+  }
+}

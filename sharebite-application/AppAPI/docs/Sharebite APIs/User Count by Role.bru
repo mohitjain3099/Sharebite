@@ -1,0 +1,15 @@
+meta {
+  name: User Count by Role
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:3008/users/userCountByRole/?role=ngo
+  body: none
+  auth: none
+}
+
+query {
+  role: ngo
+}

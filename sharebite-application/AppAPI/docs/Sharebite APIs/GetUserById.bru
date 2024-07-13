@@ -1,0 +1,25 @@
+meta {
+  name: GetUserById
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:3008/users/662071766c25f3392c43070c
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "firstName": "Shreyas",
+    "lastName": "Kothari",
+    "gender": "Male",
+    "role": "delivery",
+    "dob": "1998-03-05",
+    "contact": "18575445983",
+    "email": "spk0@g.c",
+    "password": "Abcd@123",
+    "type": "individual"
+  }
+}

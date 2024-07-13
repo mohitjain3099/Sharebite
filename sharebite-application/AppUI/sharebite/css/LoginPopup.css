@@ -1,0 +1,106 @@
+.login-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* Increase the width */
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-popup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-popup form label {
+  margin-bottom: 10px;
+}
+
+.login-popup form input {
+  margin-bottom: 20px;
+  padding: 10px; /* Add padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 20px; /* Make corners rounded */
+  font-size: 1em; /* Increase font size */
+}
+
+.login-popup form button {
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.login-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.submit-button {
+  background: linear-gradient(to right, #000, #333);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: 10px;
+  margin-left: 20px;
+  max-width: 100px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #333, #000);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.login-popup {
+  /* existing styles */
+  padding: 30px; /* Increase padding to add space around the content */
+}
+
+.login-popup h1 {
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+.login-popup form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.login-popup form input {
+  width: 100%; /* Make the input take up the full width of the parent */
+  margin-top: 5px;
+}
+
+.login-popup form .submit-button {
+  max-width: 200px; /* Set a maximum width for the submit button */
+  margin: 5px auto 0; /* Center the button horizontally */
+}

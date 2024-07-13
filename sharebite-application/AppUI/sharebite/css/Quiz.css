@@ -1,0 +1,158 @@
+.Quiz {
+  background: 
+    repeating-linear-gradient(
+      to right, 
+      #fff, 
+      #fff 10px, 
+      #ccbfbf 10px, 
+      #ccbfbf 20px
+    ),
+    repeating-linear-gradient(
+      to left, 
+      #fff, 
+      #fff 10px, 
+      #ccbfbf 10px, 
+      #ccbfbf 20px
+    );
+    
+  background-repeat: repeat-y;
+  background-size: 20% 100%;
+  background-position: 0 0, 100% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+  font-size: 20px; /* Set a global font-size for all texts in the quiz */
+  position: relative;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ced4da;
+  margin: 20px 100px;
+  overflow: auto;
+  background-color: #fff;
+  width: auto; /* Set a fixed width */
+  height: 400px; /* Set a fixed height */
+  
+}
+
+
+
+.question.initial-question {
+  font-size: 40px; /* Set a specific font-size for the "How can you contribute" question */
+  font-weight: bolder;
+}
+
+.question.second-questions {
+  font-size: 20px; /* Set a specific font-size for the "How can you contribute" question */
+}
+
+.Quiz button, .Quiz .back-button, .Quiz .answer-button {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+}
+
+.Quiz button:hover, .Quiz .back-button:hover, .Quiz .answer-button:hover {
+  color: #555;
+}
+
+.quiz-answer {
+  display: flex; /* Make this a flex container */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-direction: column; /* Stack the items vertically */
+  flex-wrap: wrap; /* Allow the items to wrap onto multiple lines */
+  width: 100%; /* Ensure the content takes up the full width of the parent */
+  text-align: justify;
+}
+
+.quiz-answer.slide {
+  transform: translateX(100%);
+}
+
+
+.button-container {
+  display: flex; /* Make this a flex container */
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Add space above the buttons */
+}
+
+.Quiz .back-button, .Quiz .answer-button {
+  background: linear-gradient(to right, #000, #333);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 10px; /* Add horizontal margin */
+  text-align: center;
+  align-items: center;
+}
+
+.Quiz .initial-question {
+  color: #000;
+  text-decoration: none;
+}
+
+
+
+.QuizCard::before, .QuizCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background-image: radial-gradient(#808080 1px, #ffffff 2px, #ffffff 30px);
+  background-size: 30px 30px;
+}
+
+.QuizCard::before {
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.QuizCard::after {
+  right: 0;
+}
+
+.answer {
+  padding-left: 20%;
+  padding-right: 20%;
+  justify-content: center;
+  display: flex; 
+}
+
+.question {
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding to make the button larger */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Rounded corners */
+  transition-duration: 0.4s; /* Transition effect */
+  box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); /* Add a transparent border */
+}
+
+.question:hover {
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  box-shadow: 0 0 0 2px #4CAF50; /* Green border */
+}
+
+.center-text {
+  text-align: center;
+  padding-bottom: 20px;
+}

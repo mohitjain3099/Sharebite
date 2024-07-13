@@ -1,0 +1,22 @@
+meta {
+  name: Patch
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:3008/getALlEventData
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "location": {
+          "coordinates": {
+              "lat": "42.3298186", 
+              "lng": "-71.1111819"
+          }
+      }
+  }
+}

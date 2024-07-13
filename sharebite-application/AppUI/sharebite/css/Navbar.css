@@ -1,0 +1,90 @@
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-family: "Sedan", serif;
+  font-size: 32px;
+  font-weight: bold; /* Make the logo bold */
+  font-style: normal;
+  position: absolute;
+  top: 40%; /* Center the logo vertically */
+  left: 15px;
+  padding-top: 10px; /* Adjust based on your design */
+  padding-left: 10px; /* Adjust based on your design */
+  transform: translateY(-50%); /* Adjust the position of the logo */
+}
+
+.profile-icon {
+  position: absolute;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: #ccc;
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile-menu {
+  position: absolute;
+  right: 15px;
+  top: 70px; /* Adjust this value as needed */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.profile-menu li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.profile-menu li:last-child {
+  border-bottom: none;
+}
+
+.profile-menu li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-menu li a:hover {
+  color: #007BFF;
+  background-color: #f1f1f1;
+}
+
+.login-button button, .donate-button button {
+  background: linear-gradient(to right, #000, #333);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.login-button button:hover, .donate-button button:hover {
+  background: linear-gradient(to right, #333, #000);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+

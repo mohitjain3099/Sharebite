@@ -1,0 +1,25 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3008/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "firstName": "ShareBite",
+    "lastName": "Team",
+    "gender": "Male",
+    "role": "admin",
+    "dob": "1998-03-05",
+    "contact": "18575445983",
+    "email": "admin@gmail.com",
+    "password": "Admin@123",
+    "type": "individual"
+  }
+}
